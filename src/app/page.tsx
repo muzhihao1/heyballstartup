@@ -51,6 +51,7 @@ export default function Home() {
                   src="/videos/hero.mp4"
                   controls
                   muted
+                  autoPlay
                   playsInline
                   preload="metadata"
                 >
