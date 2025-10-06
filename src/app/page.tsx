@@ -98,6 +98,9 @@ export default function Home() {
               <div className="mt-6 flex justify-center">
                 <div className="rounded-2xl border border-brand-gold/30 bg-brand-gold/5 px-12 py-8">
                   <p className="text-center text-2xl font-bold text-brand-gold">{titleSponsor.name}</p>
+                  {titleSponsor.tagline && (
+                    <p className="mt-3 text-center text-lg font-medium text-brand-gold/90">{titleSponsor.tagline}</p>
+                  )}
                   {titleSponsor.description && (
                     <p className="mt-2 text-center text-sm text-white/60">{titleSponsor.description}</p>
                   )}
@@ -116,17 +119,12 @@ export default function Home() {
                     key={sponsor.name}
                     className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-brand-gold/30"
                   >
-                    {sponsor.logoUrl ? (
-                      <img
-                        src={sponsor.logoUrl}
-                        alt={sponsor.name}
-                        className="h-24 w-auto object-contain"
-                      />
-                    ) : (
-                      <p className="text-center text-lg font-semibold text-white">{sponsor.name}</p>
+                    <p className="text-center text-lg font-semibold text-white">{sponsor.name}</p>
+                    {sponsor.tagline && (
+                      <p className="mt-3 text-center text-sm font-medium text-brand-gold/90">{sponsor.tagline}</p>
                     )}
                     {sponsor.description && (
-                      <p className="mt-3 text-center text-xs text-white/60">{sponsor.description}</p>
+                      <p className="mt-2 text-center text-xs text-white/60">{sponsor.description}</p>
                     )}
                   </div>
                 ))}
@@ -150,6 +148,25 @@ export default function Home() {
                     )}
                   </div>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* 则万皮头专业品牌展示 */}
+          {mainSponsors.find((s) => s.name === "则万皮头") && (
+            <div className="mt-12">
+              <div className="mx-auto max-w-2xl rounded-2xl border border-brand-gold/20 bg-gradient-to-b from-brand-gold/5 to-transparent p-8">
+                <h3 className="text-center text-xl font-bold text-brand-gold">则万皮头</h3>
+                <p className="mt-2 text-center text-base font-medium text-brand-gold/90">
+                  专业人士赞誉有加的专业品牌
+                </p>
+                <div className="mt-6 flex justify-center">
+                  <img
+                    src="/sponsors/zewan.jpg"
+                    alt="则万皮头海报"
+                    className="w-full max-w-md rounded-lg shadow-2xl"
+                  />
+                </div>
               </div>
             </div>
           )}

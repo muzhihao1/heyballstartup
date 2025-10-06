@@ -6,6 +6,7 @@ export interface Sponsor {
   logoUrl?: string;
   websiteUrl?: string;
   description?: string;
+  tagline?: string;
 }
 
 export const sponsors: Sponsor[] = [
@@ -13,17 +14,20 @@ export const sponsors: Sponsor[] = [
     name: "湘潭铺子枸杞槟榔",
     tier: "冠名品牌",
     description: "冠名赞助商",
+    tagline: "湘潭铺子，全国销量遥遥领先",
   },
   {
     name: "则万皮头",
     tier: "赞助商",
     logoUrl: "/sponsors/zewan.jpg",
     description: "专业人士赞誉有加的专业品牌",
+    tagline: "打球要夺冠，皮头用则万",
   },
   {
     name: "元尘球杆",
     tier: "赞助商",
     description: "专业台球器材",
+    tagline: "元尘在手，球技我有",
   },
   {
     name: "FKT球杆",
