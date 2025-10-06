@@ -11,14 +11,14 @@ export const highlights: HighlightItem[] = [
     description: "菜鸟杯已成功举办6届，覆盖昆明核心商圈与高校周边。",
   },
   {
-    title: "2025赛季站点",
-    value: "5大站点",
-    description: "计划覆盖昆明核心商圈，持续拓展高势能门店。",
+    title: "活跃的选手资源",
+    value: "500+",
+    description: "汇聚昆明本地台球爱好者与职业选手，形成稳定的赛事参与群体，为赛事提供持续活力。",
   },
   {
-    title: "合作球房网络",
-    value: "22家门店",
-    description: "旗下直营加盟门店遍布昆明5区及安宁、澄江。",
+    title: "丰富的赞助商资源",
+    value: "10+品牌",
+    description: "汇聚台球装备、食品饮料、运动服饰等多元品牌合作伙伴，为赛事提供全方位支持与品牌赋能。",
   },
   {
     title: "赛事运营经验",

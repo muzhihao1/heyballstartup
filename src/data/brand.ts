@@ -14,7 +14,7 @@ export const companyIntro = {
     { year: "2022", event: "云南耶氏体育文化发展有限公司正式注册成立" },
     { year: "2025", event: "西南区域直营加盟门店 22 家，赛事运营覆盖核心商圈" },
   ],
-  headquarters: "官渡区新亚洲体育城悦成国际3楼耶氏台球加盟总店",
+  headquarters: "昆明市官渡区新亚洲体育城悦成国际3楼耶氏台球加盟总店",
 };
 
 export const strengths = [
