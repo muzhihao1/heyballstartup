@@ -9,6 +9,7 @@ import { companyIntro, strengths } from "@/data/brand";
 import { faqs } from "@/data/faq";
 import { prizes } from "@/data/prizes";
 import { ADDRESS, HOTLINE, WECHAT_ID, COPYRIGHT } from "@/data/contact";
+import { titleSponsor, mainSponsors, coOrganizers } from "@/data/sponsors";
 
 export default function Home() {
   const completedEvents = events.filter((event) => event.status === "completed");
@@ -28,8 +29,7 @@ export default function Home() {
                 耶氏赛事运营中心<span className="block text-base text-brand-gold">耶氏台球，独享台球的快乐</span>
               </h1>
               <p className="mt-6 text-base text-white/80">
-                面向赞助商与球房的专业赛事品牌网站，展示耶氏黄金八系列站点、运营能力与合作方案，
-                以数据和案例帮助您快速决策，共同打造高质量台球赛事。
+                专注于台球赛事运营，为赞助商提供精准品牌推广，为合作球房激活会员。期待与您携手，欢迎洽谈合作。
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -113,13 +113,14 @@ export default function Home() {
             <div>
               <h2 className="text-2xl font-semibold text-white">历届站点战报</h2>
               <p className="mt-3 text-white/70">
-                2025赛季耶氏黄金八系列已完成四站，持续收获会员与合作门店好评。
+                菜鸟杯系列赛已成功举办六届，第七届火热筹备中，持续收获会员与合作门店好评。
               </p>
             </div>
             {upcomingEvent && (
               <div className="rounded-2xl border border-brand-gold/30 bg-brand-gold/10 px-4 py-3 text-brand-gold">
                 <p className="text-xs uppercase tracking-[0.3em]">Upcoming</p>
-                <p className="mt-1 text-sm">{upcomingEvent.name} · {upcomingEvent.dateRange}</p>
+                <p className="mt-1 text-sm font-medium">{upcomingEvent.name}</p>
+                <p className="mt-1 text-xs text-brand-gold/80">{upcomingEvent.dateRange}</p>
               </div>
             )}
           </div>
@@ -129,9 +130,14 @@ export default function Home() {
               <article key={event.id} className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="text-xl font-semibold text-white">{event.name}</h3>
-                  <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/70">
-                    {event.dateRange}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-full bg-brand-gold/20 px-3 py-1 text-xs font-medium text-brand-gold">
+                      {event.category}
+                    </span>
+                    <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/70">
+                      {event.dateRange}
+                    </span>
+                  </div>
                 </div>
                 <p className="mt-2 text-sm text-white/60">{event.location}</p>
                 <p className="mt-4 text-sm text-white/80">{event.highlight}</p>
@@ -370,12 +376,79 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section id="sponsors" className="border-overlay px-6 py-12 lg:px-12">
+          <h2 className="text-center text-2xl font-semibold text-white">合作伙伴</h2>
+          <p className="mt-3 text-center text-sm text-white/70">感谢以下合作伙伴对耶氏赛事的大力支持</p>
+
+          {/* 冠名品牌 */}
+          {titleSponsor && (
+            <div className="mt-12">
+              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">冠名品牌</p>
+              <div className="mt-6 flex justify-center">
+                <div className="rounded-2xl border border-brand-gold/30 bg-brand-gold/5 px-12 py-8">
+                  <p className="text-center text-2xl font-bold text-brand-gold">{titleSponsor.name}</p>
+                  {titleSponsor.description && (
+                    <p className="mt-2 text-center text-sm text-white/60">{titleSponsor.description}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 赞助商 */}
+          {mainSponsors.length > 0 && (
+            <div className="mt-12">
+              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">赞助商</p>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {mainSponsors.map((sponsor) => (
+                  <div
+                    key={sponsor.name}
+                    className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-brand-gold/30"
+                  >
+                    {sponsor.logoUrl ? (
+                      <img
+                        src={sponsor.logoUrl}
+                        alt={sponsor.name}
+                        className="h-24 w-auto object-contain"
+                      />
+                    ) : (
+                      <p className="text-center text-lg font-semibold text-white">{sponsor.name}</p>
+                    )}
+                    {sponsor.description && (
+                      <p className="mt-3 text-center text-xs text-white/60">{sponsor.description}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* 协办单位 */}
+          {coOrganizers.length > 0 && (
+            <div className="mt-12">
+              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">协办单位</p>
+              <div className="mt-6 flex justify-center">
+                {coOrganizers.map((organizer) => (
+                  <div
+                    key={organizer.name}
+                    className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4"
+                  >
+                    <p className="text-center text-base font-medium text-white">{organizer.name}</p>
+                    {organizer.description && (
+                      <p className="mt-1 text-center text-xs text-white/60">{organizer.description}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
       </main>
 
       <footer className="border-t border-white/10 bg-black/30 py-8 text-center text-xs text-white/60">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4">
           <p>主办单位：云南耶氏体育用品制造有限公司</p>
-          <p>冠名品牌：湘潭铺子枸杞槟榔 | 赞助商：耶氏台球斗南销售中心、煌巢酒业有限公司、申天堂球桌、元尘球杆、绅羊巧克、FKT球杆</p>
           <p>{COPYRIGHT}</p>
         </div>
       </footer>

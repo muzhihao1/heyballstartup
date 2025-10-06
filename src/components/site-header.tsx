@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { HOTLINE, WECHAT_ID } from "@/data/contact";
 import { CopyButton } from "./copy-button";
 
@@ -11,6 +12,7 @@ const navItems = [
   { label: "历届战报", href: "#events" },
   { label: "品牌与团队", href: "#brand" },
   { label: "合作方案", href: "#partners" },
+  { label: "合作伙伴", href: "#sponsors" },
   { label: "联系我们", href: "#contact" },
 ];
 
@@ -24,7 +26,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-white/5 bg-brand-navy/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 lg:py-4">
         <Link href="#hero" onClick={closeMenu} className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-brand-gold/10 ring-1 ring-brand-gold/40" />
+          <Image
+            src="/yesh-logo.png"
+            alt="YES BILLIARDS Logo"
+            width={40}
+            height={40}
+            className="h-10 w-10 object-contain"
+          />
           <div className="text-white">
             <p className="text-sm uppercase tracking-[0.32em] text-brand-gold">YES BILLIARDS</p>
             <p className="text-base font-semibold">耶氏赛事品牌中心</p>
