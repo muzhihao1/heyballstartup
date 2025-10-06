@@ -153,14 +153,6 @@ export default function Home() {
               </div>
             </div>
           )}
-
-          {/* 招募信息 */}
-          <div className="mt-12 rounded-2xl border border-brand-gold/30 bg-brand-gold/10 p-6 text-brand-gold">
-            <p className="text-center text-lg font-semibold">正在招募赛事合作伙伴</p>
-            <p className="mt-3 text-center text-sm text-brand-gold/80">
-              支持定制化站点冠名、线下品牌快闪、会员积分联动及专属内容制作，欢迎咨询了解权益组合。
-            </p>
-          </div>
         </section>
 
         <section id="services" className="border-overlay px-6 py-8 lg:px-12">
@@ -257,7 +249,7 @@ export default function Home() {
               <p className="text-xs uppercase tracking-[0.3em]">Headquarters</p>
               <p className="mt-3 text-base font-semibold">{companyIntro.headquarters}</p>
               <p className="mt-4 text-sm text-brand-gold/80">
-                21家合作门店覆盖昆明五区、安宁与玉溪澄江，持续拓展区域赛事版图。
+                22家直营加盟门店覆盖昆明五区、安宁与玉溪澄江，持续拓展区域赛事版图。
               </p>
             </div>
           </div>

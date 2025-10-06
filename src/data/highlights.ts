@@ -17,8 +17,8 @@ export const highlights: HighlightItem[] = [
   },
   {
     title: "合作球房网络",
-    value: "21家门店",
-    description: "旗下与合作加盟门店遍布昆明5区及安宁、澄江。",
+    value: "22家门店",
+    description: "旗下直营加盟门店遍布昆明5区及安宁、澄江。",
   },
   {
     title: "赛事运营经验",
