@@ -5,9 +5,7 @@ import { events } from "@/data/events";
 import { highlights } from "@/data/highlights";
 import { services } from "@/data/services";
 import { cooperationFlows } from "@/data/process";
-import { companyIntro, strengths } from "@/data/brand";
-import { faqs } from "@/data/faq";
-import { prizes } from "@/data/prizes";
+import { companyIntro } from "@/data/brand";
 import { ADDRESS, HOTLINE, WECHAT_ID, COPYRIGHT } from "@/data/contact";
 import { titleSponsor, mainSponsors, coOrganizers } from "@/data/sponsors";
 
@@ -86,6 +84,82 @@ export default function Home() {
             </span>
             <span className="text-brand-gold">抖音 · 云南耶氏体育文化发展有限公司</span>
             <span className="text-brand-gold/80">赛事全程支持直播/录播及赛报内容输出</span>
+          </div>
+        </section>
+
+        <section id="sponsors" className="border-overlay px-6 py-12 lg:px-12">
+          <h2 className="text-center text-2xl font-semibold text-white">合作伙伴</h2>
+          <p className="mt-3 text-center text-sm text-white/70">感谢以下合作伙伴对耶氏赛事的大力支持</p>
+
+          {/* 冠名品牌 */}
+          {titleSponsor && (
+            <div className="mt-12">
+              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">冠名品牌</p>
+              <div className="mt-6 flex justify-center">
+                <div className="rounded-2xl border border-brand-gold/30 bg-brand-gold/5 px-12 py-8">
+                  <p className="text-center text-2xl font-bold text-brand-gold">{titleSponsor.name}</p>
+                  {titleSponsor.description && (
+                    <p className="mt-2 text-center text-sm text-white/60">{titleSponsor.description}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 赞助商 */}
+          {mainSponsors.length > 0 && (
+            <div className="mt-12">
+              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">赞助商</p>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {mainSponsors.map((sponsor) => (
+                  <div
+                    key={sponsor.name}
+                    className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-brand-gold/30"
+                  >
+                    {sponsor.logoUrl ? (
+                      <img
+                        src={sponsor.logoUrl}
+                        alt={sponsor.name}
+                        className="h-24 w-auto object-contain"
+                      />
+                    ) : (
+                      <p className="text-center text-lg font-semibold text-white">{sponsor.name}</p>
+                    )}
+                    {sponsor.description && (
+                      <p className="mt-3 text-center text-xs text-white/60">{sponsor.description}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* 协办单位 */}
+          {coOrganizers.length > 0 && (
+            <div className="mt-12">
+              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">协办单位</p>
+              <div className="mt-6 flex justify-center">
+                {coOrganizers.map((organizer) => (
+                  <div
+                    key={organizer.name}
+                    className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4"
+                  >
+                    <p className="text-center text-base font-medium text-white">{organizer.name}</p>
+                    {organizer.description && (
+                      <p className="mt-1 text-center text-xs text-white/60">{organizer.description}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* 招募信息 */}
+          <div className="mt-12 rounded-2xl border border-brand-gold/30 bg-brand-gold/10 p-6 text-brand-gold">
+            <p className="text-center text-lg font-semibold">正在招募赛事合作伙伴</p>
+            <p className="mt-3 text-center text-sm text-brand-gold/80">
+              支持定制化站点冠名、线下品牌快闪、会员积分联动及专属内容制作，欢迎咨询了解权益组合。
+            </p>
           </div>
         </section>
 
@@ -173,123 +247,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="overview-details" className="border-overlay px-6 py-8 lg:px-12">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-            <div>
-              <h2 className="text-2xl font-semibold text-white">本场赛事资讯</h2>
-              <dl className="mt-6 space-y-4 text-sm text-white/80">
-                <div>
-                  <dt className="text-brand-gold">比赛时间</dt>
-                  <dd className="mt-1">2025年8月28日—31日 · 预选赛 28-29 日 · 正赛 30-31 日</dd>
-                </div>
-                <div>
-                  <dt className="text-brand-gold">比赛地点</dt>
-                  <dd className="mt-1">昆明市呈贡区古银路华联超市对面2楼呈贡广场加盟店</dd>
-                </div>
-                <div>
-                  <dt className="text-brand-gold">参赛资格</dt>
-                  <dd className="mt-1">
-                    耶氏会员积分200分以上，昆明档位低于4档（不含4档）。赛事组保留现场抽查、调档与取消资格权利。
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-brand-gold">报名方式</dt>
-                  <dd className="mt-1">
-                    报名费50元，负方现场结算台费（不打折、不刷卡）。开赛后10分钟未到判负一局，30分钟未到视为弃权。
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-brand-gold">直播与授权</dt>
-                  <dd className="mt-1">
-                    参赛即同意赛事方直播/录播/摄影，并在宣传中使用选手姓名、肖像、影像与战绩信息。
-                  </dd>
-                </div>
-              </dl>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-lg font-semibold text-white">奖励设置</h3>
-              <ul className="mt-4 space-y-3">
-                {prizes.map((prize) => (
-                  <li
-                    key={prize.rank}
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-brand-navy/30 px-4 py-3"
-                  >
-                    <span className="text-sm text-brand-gold">{prize.rank}</span>
-                    <span className="text-sm text-white/80">{prize.reward}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 rounded-xl border border-brand-gold/30 bg-brand-gold/10 p-4 text-sm text-brand-gold">
-                赛制：预选赛单败、正赛双败；全程采用“耶氏黄金八”赛制与弹性让球规则。
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-10">
-            <h3 className="text-lg font-semibold text-white">常见问题</h3>
-            <div className="mt-4 space-y-4">
-              {faqs.map((faq) => (
-                <details key={faq.question} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                  <summary className="cursor-pointer text-sm font-medium text-white">
-                    {faq.question}
-                  </summary>
-                  <p className="mt-3 text-sm text-white/70">{faq.answer}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="brand" className="border-overlay px-6 py-8 lg:px-12">
-          <h2 className="text-2xl font-semibold text-white">品牌与团队</h2>
-          <p className="mt-3 text-white/70">{companyIntro.description}</p>
-
-          <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-lg font-semibold text-white">核心优势</h3>
-              <ul className="mt-4 space-y-4 text-sm text-white/80">
-                {companyIntro.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 flex-none rounded-full bg-brand-gold" />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="lg:w-1/3">
+              <h2 className="text-2xl font-semibold text-white">品牌与团队</h2>
+              <p className="mt-3 text-white/70">{companyIntro.description}</p>
             </div>
-            <div className="rounded-2xl border border-brand-gold/20 bg-brand-gold/10 p-6 text-brand-gold">
+            <div className="rounded-2xl border border-brand-gold/20 bg-brand-gold/10 p-6 text-brand-gold lg:w-2/3">
               <p className="text-xs uppercase tracking-[0.3em]">Headquarters</p>
               <p className="mt-3 text-base font-semibold">{companyIntro.headquarters}</p>
               <p className="mt-4 text-sm text-brand-gold/80">
                 21家合作门店覆盖昆明五区、安宁与玉溪澄江，持续拓展区域赛事版图。
               </p>
             </div>
-          </div>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {strengths.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-white/10 bg-brand-navy/40 p-5">
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-3 text-sm text-white/70">{item.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8">
-            <h3 className="text-lg font-semibold text-white">发展历程</h3>
-            <ul className="mt-4 space-y-4">
-              {companyIntro.timeline.map((item) => (
-                <li key={item.year} className="flex gap-4">
-                  <div className="flex flex-col items-center">
-                    <span className="rounded-full border border-brand-gold/40 bg-brand-gold/10 px-3 py-1 text-xs text-brand-gold">
-                      {item.year}
-                    </span>
-                    <span className="mt-2 h-full w-px bg-brand-gold/20" />
-                  </div>
-                  <p className="text-sm text-white/70">{item.event}</p>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
@@ -375,74 +345,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        <section id="sponsors" className="border-overlay px-6 py-12 lg:px-12">
-          <h2 className="text-center text-2xl font-semibold text-white">合作伙伴</h2>
-          <p className="mt-3 text-center text-sm text-white/70">感谢以下合作伙伴对耶氏赛事的大力支持</p>
-
-          {/* 冠名品牌 */}
-          {titleSponsor && (
-            <div className="mt-12">
-              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">冠名品牌</p>
-              <div className="mt-6 flex justify-center">
-                <div className="rounded-2xl border border-brand-gold/30 bg-brand-gold/5 px-12 py-8">
-                  <p className="text-center text-2xl font-bold text-brand-gold">{titleSponsor.name}</p>
-                  {titleSponsor.description && (
-                    <p className="mt-2 text-center text-sm text-white/60">{titleSponsor.description}</p>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* 赞助商 */}
-          {mainSponsors.length > 0 && (
-            <div className="mt-12">
-              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">赞助商</p>
-              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {mainSponsors.map((sponsor) => (
-                  <div
-                    key={sponsor.name}
-                    className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-brand-gold/30"
-                  >
-                    {sponsor.logoUrl ? (
-                      <img
-                        src={sponsor.logoUrl}
-                        alt={sponsor.name}
-                        className="h-24 w-auto object-contain"
-                      />
-                    ) : (
-                      <p className="text-center text-lg font-semibold text-white">{sponsor.name}</p>
-                    )}
-                    {sponsor.description && (
-                      <p className="mt-3 text-center text-xs text-white/60">{sponsor.description}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* 协办单位 */}
-          {coOrganizers.length > 0 && (
-            <div className="mt-12">
-              <p className="text-center text-sm uppercase tracking-[0.3em] text-brand-gold">协办单位</p>
-              <div className="mt-6 flex justify-center">
-                {coOrganizers.map((organizer) => (
-                  <div
-                    key={organizer.name}
-                    className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4"
-                  >
-                    <p className="text-center text-base font-medium text-white">{organizer.name}</p>
-                    {organizer.description && (
-                      <p className="mt-1 text-center text-xs text-white/60">{organizer.description}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </section>
       </main>
 

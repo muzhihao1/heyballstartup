@@ -18,7 +18,7 @@ export const sponsors: Sponsor[] = [
     name: "则万皮头",
     tier: "赞助商",
     logoUrl: "/sponsors/zewan.jpg",
-    description: "专业级皮头",
+    description: "专业人士赞誉有加的专业品牌",
   },
   {
     name: "元尘球杆",
